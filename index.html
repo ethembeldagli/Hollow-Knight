@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollow Knight & Silksong - Masterpieces of Gaming</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void-black: #0a0a0f;
+            --deep-blue: #1a1f3a;
+            --pale-blue: #6b9ac4;
+            --soul-white: #f0f4f8;
+            --accent-cyan: #5fc3e4;
+            --shadow-purple: #7b68a6;
+            --hallownest-gray: #2d3142;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--void-black);
+            color: var(--soul-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 18px;
+        }
+
+        /* Animated background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--void-black) 0%, var(--deep-blue) 50%, var(--hallownest-gray) 100%);
+            opacity: 0.8;
+        }
+
+        .background-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, var(--shadow-purple) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, var(--deep-blue) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--soul-white), var(--accent-cyan), var(--pale-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--pale-blue);
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fadeInUp 1.5s ease-out 0.3s backwards;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            max-width: 700px;
+            color: var(--soul-white);
+            opacity: 0.9;
+            font-style: italic;
+            animation: fadeInUp 1.5s ease-out 0.6s backwards;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            margin: 20px auto 0;
+        }
+
+        .game-section {
+            background: linear-gradient(135deg, rgba(29, 31, 58, 0.4), rgba(43, 49, 66, 0.3));
+            border: 1px solid rgba(107, 154, 196, 0.2);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 60px rgba(95, 195, 228, 0.3);
+        }
+
+        .game-section h3 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--soul-white);
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .game-section p {
+            margin-bottom: 20px;
+            color: var(--soul-white);
+            opacity: 0.95;
+            text-align: justify;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: rgba(45, 49, 66, 0.6);
+            border: 1px solid rgba(95, 195, 228, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(45, 49, 66, 0.8);
+            border-color: var(--accent-cyan);
+            transform: scale(1.05);
+        }
+
+        .feature-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--soul-white);
+            opacity: 0.9;
+            text-align: left;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            text-align: center;
+            padding: 80px 20px;
+            font-style: italic;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--pale-blue);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .quote-section::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-cyan);
+            opacity: 0.5;
+            display: block;
+            line-height: 0.5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--pale-blue);
+            opacity: 0.7;
+            font-size: 1rem;
+        }
+
+        /* Decorative elements */
+        .ornament {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            margin: 30px auto;
+        }
+
+        /* Aspid Section - Special Hell */
+        .aspid-hate-section {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(80, 0, 0, 0.4));
+            border: 2px solid rgba(255, 69, 0, 0.5);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 60px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(139, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .aspid-hate-section h2 {
+            color: #ff4500;
+            margin-bottom: 30px;
+        }
+
+        .aspid-hate-section h2::after {
+            background: linear-gradient(90deg, transparent, #ff4500, transparent);
+        }
+
+        .aspid-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .aspid-image-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        @keyframes annoyingFloat {
+            0%, 100% { transform: translate(0, 0) rotate(-5deg); }
+            25% { transform: translate(15px, -20px) rotate(5deg); }
+            50% { transform: translate(-10px, -15px) rotate(-10deg); }
+            75% { transform: translate(20px, -25px) rotate(8deg); }
+        }
+
+        @keyframes spitProjectile {
+            0% { opacity: 1; transform: translateX(0) scale(1); }
+            100% { opacity: 0; transform: translateX(200px) scale(0.5); }
+        }
+
+        .primal-aspid-svg {
+            animation: annoyingFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.5));
+        }
+
+        .projectile {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #ff6b00, #ff0000);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            animation: spitProjectile 1.5s ease-out infinite;
+            opacity: 0;
+        }
+
+        .projectile:nth-child(2) { animation-delay: 0.5s; }
+        .projectile:nth-child(3) { animation-delay: 1s; }
+
+        .aspid-rant {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .aspid-rant p {
+            margin-bottom: 20px;
+            color: var(--soul-white);
+            font-size: 1.1rem;
+        }
+
+        .aspid-rant strong {
+            color: #ff6b00;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 15px;
+            }
+
+            .game-section {
+                padding: 40px 25px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .aspid-image-wrapper {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Dark mode is default, but support light mode preference */
+        @media (prefers-color-scheme: light) {
+            /* Keep dark theme regardless - it fits the game's aesthetic */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+
+    <div class="hero">
+        <h1>Hollow Knight</h1>
+        <div class="subtitle">Journey Through Hallownest</div>
+        <p class="tagline">"No cost too great. No mind to think. No will to break. No voice to cry suffering."</p>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2>A Descent into Perfection</h2>
+
+            <div class="game-section">
+                <h3>Hollow Knight (2017)</h3>
+                <p>
+                    In the depths of a forgotten kingdom lies a masterpiece that redefined what indie games could achieve. Hollow Knight is not merely a game—it's an odyssey through the ruins of Hallownest, a once-great civilization now consumed by an ancient plague. Developed by the small but visionary Team Cherry, this metroidvania stands as a testament to passionate game design, artistic vision, and the power of atmosphere.
+                </p>
+                <p>
+                    Every corner of Hallownest breathes with purpose. From the melancholic City of Tears, where eternal rain falls upon forgotten monuments, to the luminescent beauty of the Crystal Peak, each area tells a story without words. The game respects your intelligence, offering environmental storytelling that rewards exploration and observation rather than hand-holding tutorials.
+                </p>
+                <p>
+                    The gameplay is poetry in motion. Tight, responsive controls make every encounter a dance between life and death. Boss battles are not mere obstacles but artistic duels that test your skill, patience, and determination. The Mantis Lords bow to those who prove their worth. The Radiance awaits at the peak of challenge and narrative convergence.
+                </p>
+                <div class="ornament"></div>
+                <p>
+                    Christopher Larkin's hauntingly beautiful soundtrack doesn't just accompany your journey—it elevates it. Each track perfectly captures the essence of its domain: the somber strings of Dirtmouth, the frantic percussion of the Mantis Village, the ethereal chorus of the Resting Grounds. This is music that lingers in your soul long after you've put down the controller.
+                </p>
+            </div>
+
+            <div class="game-section">
+                <h3>Hollow Knight: Silksong (Anticipated)</h3>
+                <p>
+                    What began as a promised DLC evolved into something far grander. Silksong follows Hornet, the princess-protector of Hallownest, as she awakens in a strange new kingdom called Pharloom. If Hollow Knight was a masterclass in game design, Silksong promises to be its evolution—taking everything that worked and amplifying it.
+                </p>
+                <p>
+                    Hornet's movement is faster, more acrobatic, more aggressive than the Knight's methodical exploration. Where the Knight was a silent vessel, Hornet speaks, shouts, and asserts her presence. The gameplay shifts from cautious navigation to dynamic combat, with new mechanics like thread-based abilities and a completely redesigned charm system.
+                </p>
+                <p>
+                    Team Cherry hasn't just created a sequel—they've built an entirely new world with its own mysteries, kingdoms, and stories to uncover. Pharloom rises where Hallownest descended, featuring vertical exploration through ascending kingdoms rather than the original's underground sprawl. New enemies, new bosses, new lore—all crafted with the same meticulous attention to detail that made the original unforgettable.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Why These Are Gaming's Finest</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>Unparalleled Art Direction</h4>
+                    <p>Hand-drawn animation brings every creature, every environment to life with personality and purpose. The art style is instantly recognizable, hauntingly beautiful, and endlessly memorable.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Masterful Level Design</h4>
+                    <p>Interconnected zones reward exploration and create moments of revelation. Shortcuts unlock, mysteries deepen, and the map expands in ways that constantly surprise and delight.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Challenging Yet Fair</h4>
+                    <p>Difficulty that respects your time and skill. Every death is a lesson. Every victory is earned. The satisfaction of overcoming challenges is profound and lasting.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Rich, Cryptic Lore</h4>
+                    <p>A narrative that trusts players to piece together the tragic history of Hallownest through environmental clues, item descriptions, and enigmatic NPC dialogue.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Transcendent Atmosphere</h4>
+                    <p>The combination of visuals, music, sound design, and pacing creates an atmosphere that few games ever achieve—immersive, melancholic, and utterly captivating.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="aspid-hate-section">
+            <h2>The ONE Flaw: Primal Aspids</h2>
+
+            <div class="aspid-container">
+                <div class="aspid-image-wrapper">
+                    <svg class="primal-aspid-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Body -->
+                        <ellipse cx="100" cy="100" rx="60" ry="40" fill="#ff6b35" stroke="#8b0000" stroke-width="2"/>
+
+                        <!-- Wings -->
+                        <path d="M 60 80 Q 20 70 30 100 Q 25 120 60 110 Z" fill="#ffa07a" opacity="0.7" stroke="#8b0000" stroke-width="1.5"/>
+                        <path d="M 140 80 Q 180 70 170 100 Q 175 120 140 110 Z" fill="#ffa07a" opacity="0.7" stroke="#8b0000" stroke-width="1.5"/>
+
+                        <!-- Evil Eyes -->
+                        <circle cx="85" cy="90" r="12" fill="#000000"/>
+                        <circle cx="115" cy="90" r="12" fill="#000000"/>
+                        <circle cx="88" cy="87" r="5" fill="#ff0000"/>
+                        <circle cx="118" cy="87" r="5" fill="#ff0000"/>
+
+                        <!-- Angry mouth -->
+                        <path d="M 80 105 Q 100 115 120 105" stroke="#8b0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+                        <!-- Stinger -->
+                        <path d="M 160 100 L 180 100 L 185 105 L 180 110 L 160 110 Z" fill="#8b0000"/>
+
+                        <!-- Antenna -->
+                        <line x1="85" y1="70" x2="75" y2="50" stroke="#8b0000" stroke-width="2"/>
+                        <line x1="115" y1="70" x2="125" y2="50" stroke="#8b0000" stroke-width="2"/>
+                        <circle cx="75" cy="50" r="4" fill="#ff6b35"/>
+                        <circle cx="125" cy="50" r="4" fill="#ff6b35"/>
+
+                        <!-- Legs -->
+                        <line x1="70" y1="130" x2="60" y2="150" stroke="#8b0000" stroke-width="2"/>
+                        <line x1="90" y1="135" x2="85" y2="155" stroke="#8b0000" stroke-width="2"/>
+                        <line x1="110" y1="135" x2="115" y2="155" stroke="#8b0000" stroke-width="2"/>
+                        <line x1="130" y1="130" x2="140" y2="150" stroke="#8b0000" stroke-width="2"/>
+                    </svg>
+                    <div class="projectile"></div>
+                    <div class="projectile"></div>
+                    <div class="projectile"></div>
+                </div>
+
+                <div class="aspid-rant">
+                    <p>
+                        In a game of near-perfection, there exists ONE abomination that tests not your skill, but your patience and sanity: the <strong>Primal Aspid</strong>. These flying demons were clearly designed by someone who woke up and chose violence.
+                    </p>
+                    <p>
+                        <strong>Why are they the worst?</strong> Let me count the ways:
+                    </p>
+                    <p>
+                        <strong>1. The Unholy Trinity of Projectiles:</strong> They don't just shoot one projectile. Oh no, that would be too reasonable. They shoot THREE orange blobs of pure hatred in a spread pattern that seems scientifically calculated to hit you no matter which way you dodge.
+                    </p>
+                    <p>
+                        <strong>2. They Fly:</strong> In a game where most of your combat is melee-based, these cowards hover just out of reach, bobbing up and down mockingly while you desperately try to find an opening that doesn't result in taking damage.
+                    </p>
+                    <p>
+                        <strong>3. Kingdom's Edge:</strong> They show up in one of the most brutal areas of the game, often in groups, usually positioned over spikes or bottomless pits. Team Cherry knew exactly what they were doing. This was intentional malice.
+                    </p>
+                    <p>
+                        <strong>4. The Erratic Movement:</strong> Their flight pattern is unpredictable chaos. Just when you think you've figured out their rhythm, they dart in a completely random direction, firing their triple-threat payload directly into your face.
+                    </p>
+                    <p>
+                        Every Hollow Knight player has a Primal Aspid horror story. Deaths to the Radiance? Honorable. Deaths to Nightmare King Grimm? Respectable. Deaths to a Primal Aspid while you're trying to explore? <strong>Soul-crushing.</strong>
+                    </p>
+                    <p style="text-align: center; font-style: italic; color: #ff6b00; font-size: 1.3rem; margin-top: 30px;">
+                        They are the only thing standing between Hollow Knight and absolute perfection.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="quote-section">
+            <p>
+                These games remind us why we play—not for graphics or budgets, but for artistry, challenge, and the unforgettable feeling of discovering something truly special in the depths of a dying kingdom.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>In memory of all the vessels, knights, and dreamers who wandered Hallownest.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Team Cherry | Hollow Knight & Silksong</p>
+    </footer>
+
+    <script>
+        // Dark mode support (though the site is designed dark by default)
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scroll animation on load for sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.game-section, .feature-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
